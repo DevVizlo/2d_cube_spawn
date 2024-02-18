@@ -1,31 +1,30 @@
 using System.Collections;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-      private const int _secondsBetweenSpawn = 2;
-
-    [SerializeField] private GameObject _object;
+    [SerializeField] private  GameObject _object;
+    [SerializeField] private int _numberOfEnemies = 10;
     [SerializeField] private Transform[] _spawnPoints;
+    [SerializeField] private float _delayTime = 1;
 
-    public Vector3 vector3 = Vector3.forward;
-
+    private GameObject _createdObject;
 
     private void Start()
     {
-        StartCoroutine(Countdown(1));    
+        StartCoroutine(Countdown(_delayTime));    
     }
 
-    private IEnumerator Countdown(float delay,  int start = _secondsBetweenSpawn)
+    private IEnumerator Countdown(float delay)
     {
         var wait = new WaitForSeconds(delay);
 
-        for (int i = start; i > 0 ; i--)
+        for (int i = _numberOfEnemies; i > 0 ; i--)
         {
             int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
 
-            Instantiate(_object, _spawnPoints[spawnPointNumber]);
+            _createdObject = Instantiate(_object, _spawnPoints[spawnPointNumber]);
+            _createdObject.gameObject.GetComponent<Mover>().Update();
 
             yield return wait;
         }
