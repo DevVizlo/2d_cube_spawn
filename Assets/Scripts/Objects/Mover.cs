@@ -1,11 +1,11 @@
 using UnityEngine;
-
+ 
 public class Mover : MonoBehaviour
 {
-    private float _speedObject = 5;
+    [SerializeField] private float _speedObject = 5;
 
-    public void Update()
+    private void Update()
     {
-      transform.Translate( Vector3.right * _speedObject * Time.deltaTime);
+      transform.Translate(Vector3.right * _speedObject * Time.deltaTime);
     }
 }

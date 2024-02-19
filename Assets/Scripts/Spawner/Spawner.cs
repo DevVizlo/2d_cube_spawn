@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private  GameObject _object;
+    [SerializeField] private Mover _object;
     [SerializeField] private int _numberOfEnemies = 10;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _delayTime = 1;
 
-    private GameObject _createdObject;
+    private Mover _createdObject;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
             int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
 
             _createdObject = Instantiate(_object, _spawnPoints[spawnPointNumber]);
-            _createdObject.gameObject.GetComponent<Mover>().Update();
+            _createdObject.GetComponent<Mover>();
 
             yield return wait;
         }
