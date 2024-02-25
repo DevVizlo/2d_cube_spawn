@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3965899064561804307}
   - component: {fileID: 8540767158748700027}
   - component: {fileID: 2619866044540578029}
-  - component: {fileID: 7593896829164972341}
+  - component: {fileID: 1383714730935631201}
   - component: {fileID: 3316450737016538337}
   m_Layer: 0
-  m_Name: Object
+  m_Name: Enemie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7593896829164972341
+--- !u!114 &1383714730935631201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da3028f1b770044d80bc88a6a37abcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedObject: 5
+  _speed: 5
 --- !u!65 &3316450737016538337
 BoxCollider:
   m_ObjectHideFlags: 0
